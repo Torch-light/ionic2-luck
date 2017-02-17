@@ -1,0 +1,71 @@
+<!--
+  Generated template for the Home page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>首页</ion-title>
+  </ion-navbar>
+
+</ion-header>
+  <totas-component (eventBorade)="eventBorade($event)"></totas-component>
+<ion-content padding>
+<ion-list>
+  <ion-item (click)="login()">
+    <ion-avatar item-left>
+      <img src="img/timg (1).png">
+    </ion-avatar>
+    <p class="homeLogin"  *ngIf="!islogin">登陆/注册</p>
+    <p *ngIf="islogin" >用户:{{userInfo.UserName}}</p>
+    <p *ngIf="islogin" >积分:{{points}}</p>
+    
+  </ion-item>
+</ion-list>
+<div class="boxParent">
+
+<div class="box" *ngIf="islogin">
+ <!--<div> <box [boxs]="box"></box></div>-->
+  <!--<div class="boxText"  (click)="register()">
+      <span class="clear">注册</span>
+  </div>-->
+  <div  *ngFor="let box of boxs" class="boxText"  (click)="boxClick(box)">
+      <span class="clear">{{box.name}}</span>
+      
+  </div>
+
+  
+  <!--<div class="boxText"  (click)="register()">
+      <span class="clear">提现</span>
+  </div>
+  <div class="boxText"  (click)="register()">
+      <span class="clear"> 我的记录</span>
+  </div>-->
+   <div  class="boxText"  (click)="review(0)" *ngIf="userInfo&&userInfo.RoleId==0">
+      <span class="clear">审核充值<ion-badge item-right *ngIf="badge.reviewRecharge"  color="secondary">{{badge.reviewRecharge}}</ion-badge></span>
+      <!--<ion-badge item-right>{{recharge.accunt}}</ion-badge>-->
+  </div> 
+  <div  class="boxText"  (click)="review(1)" *ngIf="userInfo&&userInfo.RoleId==0">
+      <span class="clear">审核提现<ion-badge item-right *ngIf="badge.reviewCash"  color="secondary">{{badge.reviewCash}}</ion-badge></span>
+      <!--<ion-badge item-right>{{cash.accunt}}</ion-badge>-->
+  </div> 
+  <div  class="boxText"  (click)="code()" *ngIf="userInfo&&userInfo.RoleId==0">
+      <span class="clear">生成邀请码</span>
+  </div> 
+
+  <div  class="boxText"  (click)="userManager()" *ngIf="userInfo&&userInfo.RoleId==0">
+      <span class="clear">用户管理</span>
+  </div> 
+
+    <div  class="boxText"  (click)="errorhandler()" *ngIf="userInfo&&userInfo.RoleId==0">
+      <span class="clear">处理数据</span>
+  </div> 
+    <div  class="boxText"  (click)="loginout()" *ngIf="userInfo">
+      <span class="clear">退出</span>
+  </div> 
+
+</div>
+</div>
+</ion-content>

@@ -1,0 +1,65 @@
+<!--
+  Generated template for the Recharge page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-navbar >
+    <ion-title *ngIf='userInfo'>充值</ion-title>
+<ion-buttons end>
+      <button class="rightButton" ion-button icon-only small (click)="history()">
+        <ion-icon name="status" >充值记录</ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!--
+<ion-content padding *ngIf='userInfo'>
+<a>12313</a>
+
+</ion-content>-->
+<ion-content padding class="rechargeContent" >
+<totas-component (eventBorade)="eventBorade($event)"></totas-component>
+  <!--<div *ngIf='!userInfo'>
+
+<login-component></login-component>
+  </div>-->
+  <div >
+<ion-list>
+  <ion-item>
+  <ion-label>支付方式</ion-label>
+  <ion-select [(ngModel)]="payType" (ngModelChange)="selectPayType(payType)">
+    <ion-option *ngFor="let option of options" [value]=option >{{option}}</ion-option>
+  </ion-select>
+</ion-item>
+  <ion-item>
+    <ion-label color="primary">金额</ion-label>
+    <ion-input placeholder="请输入金额" [(ngModel)]="model.money">
+    </ion-input>
+  </ion-item>
+<!-- <div class="p-border boxnumber">
+<p >管理员:微信<span>123321</span></p>
+<p >管理员:支付宝<span>123321</span></p>
+</div> -->
+</ion-list>
+    <div class="box p-border" *ngIf=modelObj >
+      <p *ngIf="modelObj.recharge_type==0" class="boxChild">充值方式:微信</p>
+      <p *ngIf="modelObj.recharge_type==1" class="boxChild">充值方式:支付宝</p>
+    <p class="boxChild">充值金额:{{modelObj.money}}</p>
+    <p class="boxChild">{{modelObj.updated_at}}</p>
+    <p *ngIf="modelObj.state==0" class="boxChild">状态:未打款</p>
+    <p *ngIf="modelObj.state==1" class="boxChild " color="primary">状态:已打款等待审核</p>
+    <p *ngIf="modelObj.state==2" class="boxChild" color="secondary">状态:充值成功</p>
+    <p *ngIf="modelObj.state==3" class="boxChild" color="danger">状态:管理员拒绝</p>
+
+    <button *ngIf="!(modelObj.state==2)" [disabled]="modelObj.state==1" class="boxChild" color="danger" ion-button  small (click)="updateRecharge(modelObj,0)">删除</button>
+    <button *ngIf="!(modelObj.state==2)" [disabled]="modelObj.state==1" class="boxChild" color="secondary" ion-button  small (click)="updateRecharge(modelObj,1)">我已转账</button>
+  </div>
+  </div>
+<ion-footer>
+
+<button ion-button full [disabled]="!model.money" (click)="submit()">确认</button>
+</ion-footer>

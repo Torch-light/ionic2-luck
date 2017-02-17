@@ -1,0 +1,114 @@
+page-action {
+
+}
+
+@keyframes myfirst
+{
+0%   {background: red;}
+25%  {background: yellow;}
+50%  {background: blue;}
+100% {background: green;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {background: red;}
+25%  {background: yellow;}
+50%  {background: blue;}
+100% {background: green;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {background: red;}
+25%  {background: yellow;}
+50%  {background: blue;}
+100% {background: green;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {background: red;}
+25%  {background: yellow;}
+50%  {background: blue;}
+100% {background: green;}
+}
+.actionClass{
+    color: #000;
+    font-size: 1.5rem;
+    font-color:#000;
+}
+.actionBox{
+     display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    .span1{
+        text-align: center;
+        width: 16%;
+        height: 2rem;
+        margin: 1rem;
+        color:#000;
+        border-radius:10%;
+        line-height: 2rem;
+        background-color: #ccc;
+        .radius{
+            width: 2rem;
+            height: 2rem;
+            background-color: blue;
+            border: 1px #ccc solid;
+            border-radius:50%;
+        }
+    }
+    .active {
+        background: -webkit-linear-gradient(left, #008080 ,#00ffff); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #008080 ,#00ffff); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #008080 ,#00ffff); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #008080 ,#00ffff); /* 标准的语法 */
+  
+    }
+    .actionBoxChild{
+        width: 25%;
+        height: 3rem;
+        border: 0.1px #ccc solid;
+        border-radius: 5%;
+        margin: 0.5rem;
+          display: flex;
+    flex-wrap: wrap;
+        justify-content:center;
+        span{
+            text-align: center;
+            line-height: 3rem;
+        }
+        .actionType{
+            flex-grow: 1;
+            border-right: 1px #ccc solid;
+            // display:block;
+            
+        }
+         .multiple{
+            flex-grow: 1;
+            border-right: 1px;
+            border-right: 1px #ccc solid;
+        }
+         .del{
+            flex-grow: 1;
+        }
+    }
+}
+.moneyBox{
+    border: none;
+    border:1px #00ffff solid;
+    border-radius: 5%;
+    
+}
+
+.stop{
+    margin-top: 2.5rem;
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+
+}

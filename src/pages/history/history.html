@@ -1,0 +1,33 @@
+<!--
+  Generated template for the History page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>开奖记录</ion-title>
+    <ion-buttons end>
+      <button class="rightButton" ion-button icon-only small (click)="actionHistory()">
+        <ion-icon name="status" >我的下注记录</ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding #conten>
+  <ion-card color="secondary" *ngFor="let obj of model">
+  <ion-card-header>
+   <span class="actionClass">{{obj.id}}</span>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="actionClass-div">
+    <span class="actionClass-left"  >{{obj.num}}</span>
+    <span class="actionClass-right"  >{{obj.created_at}}</span>
+    </div>
+  </ion-card-content>
+</ion-card>
+</ion-content>

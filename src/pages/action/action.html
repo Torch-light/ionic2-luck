@@ -1,0 +1,90 @@
+<!--
+  Generated template for the Action page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>下注</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="islogin">
+  <ion-card color="secondary" >
+  <ion-card-header>
+   <span class="actionClass"> 当前期数:{{num+1}}</span>
+  </ion-card-header>
+  <ion-card-content>
+    
+    <span class="actionClass" *ngIf="stystemState" >正在开奖...</span>
+    <span class="actionClass" *ngIf="!stystemState" >倒计时:{{time}}</span>
+  </ion-card-content>
+</ion-card>
+
+  <ion-card color="danger" class=“actionClass”>
+  <ion-card-header>
+    
+    <span class="actionClass">上一期:{{num}}</span>
+  </ion-card-header>
+  <ion-card-content>
+    <span class="actionClass">结果:{{cathe}}</span>
+
+  </ion-card-content>
+</ion-card>
+<div *ngIf="time>50&&!stystemState">
+<div class="actionBox" >
+  <span class="span1" *ngFor=" let obj of actionModel; let i = index" [ngClass]="{active:obj.isSelect}" (click)="selectAction(obj,i)">
+    {{obj.value}}
+    
+  </span>
+  
+</div>
+  <p>你选择的是:
+    <span *ngFor="let v of actionModel">
+      <span *ngIf="v.isSelect" style="color: red">{{v.value}}</span>
+      
+  </span>
+  <span *ngIf="model.money" style="color: red">金额:{{model.money}}</span>
+  </p>
+<ion-list  class="">
+
+
+  <ion-item class="moneyBox">
+    <ion-label fixed>请输入金额</ion-label>
+    <ion-input type="number" [(ngModel)]="model.money"></ion-input>
+  </ion-item>
+<button ion-button block (click)="submit()" [disabled]="!(model.money>100)">确认</button>
+</ion-list>
+</div>
+<div class="actionBox" >
+  <div class="actionBoxChild"  *ngFor=" let obj of modelData;">
+    <span class="actionType">{{obj.action}}</span>
+    <span class="multiple">{{obj.multiple}}</span>
+    <span class="del" *ngIf="time>50&&!stystemState"  (click)="delAction(obj)">删除</span>
+    <!--    -->
+  </div>
+  <!--<span  *ngFor=" let obj of modelData; let i = index" (click)="selectAction(obj,i)">
+    
+    
+    
+  </span>-->
+  
+</div>
+<div class="stop">
+  <p *ngIf="time<50&&time>0">
+
+    已封盘,距离开奖时间{{time}}    
+  </p>
+    
+    <p *ngIf="stystemState">
+
+    {{num+1}}正在开奖...    
+  </p>
+</div>
+</div>
+</ion-content>

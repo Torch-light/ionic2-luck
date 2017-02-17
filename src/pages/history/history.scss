@@ -1,0 +1,18 @@
+page-history {
+
+}
+
+.actionClass-div{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+    color: #000;
+    .actionClass-right{
+        flex-grow: 2;
+}
+.actionClass-left{
+flex-grow: 1;
+}
+}

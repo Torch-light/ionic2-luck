@@ -1,0 +1,40 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{headText}}
+    </ion-title>
+    <ion-buttons start>
+      <button class="rightButton" ion-button icon-only small (click)="close()">
+        <ion-icon name="close" >关闭</ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<totas-component (eventBorade)="eventBorade($event)"></totas-component>
+<!-- <from-table [fromObj]="fromdate"  (submit)="submit($event)"  ></from-table> -->
+<ion-item *ngFor=" let obj of objs">
+  <ion-label color="primary"floating>{{obj.value}}</ion-label>
+  <ion-input  [type]="obj.type"  [(ngModel)]="model[obj.date]" [name]="obj.date"></ion-input>
+</ion-item>
+
+<div padding>
+<button ion-button block (click)="submit()" >{{subText}}</button>
+</div>
+
+  <p style="text-align: center;">
+
+<span *ngIf=!indexState class="footText" (click)="register()">没有帐号?</span>
+<span *ngIf=indexState class="footText" (click)="login()">已有帐号。</span>
+</p>
+
+</ion-content>

@@ -1,0 +1,43 @@
+page-errorhandler {
+
+}
+.searchBarSwap{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+    .input{
+
+    }
+    .butn{
+
+    }
+}
+
+
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .title {
+    position: absolute;
+    top: 75%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    color: #fff;
+  }
+
+}

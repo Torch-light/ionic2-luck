@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Errormanger page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>errormanger</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding  class="card-background-page">
+  <ion-card>
+    <img src="img/v.png"/>
+    <div class="title">{{model.id}}</div>
+    <div class="subtitle">{{model.num}}</div>
+  </ion-card>
+
+      <div class="box p-border" *ngFor="let model of actionModel" >
+    <p class="boxChild">用户:{{model.name}}</p>
+    <p class="boxChild">下注:{{model.action}}</p>
+    <p class="boxChild">金额:{{model.money}}</p>
+    <p class="boxChild">倍数:{{model.multiple}}</p>
+    <p  class="boxChild" *ngIf="!model.state">状态:系统未处理</p>
+    <p  class="boxChild" *ngIf="model.state">状态:已经处理</p>
+
+    <button  class="boxChild" color="danger" ion-button  small (click)="updataAction(model,0)">没中奖</button>
+    <button  class="boxChild" color="secondary" ion-button  small (click)="updataAction(model,1)">中奖啦</button>
+  </div>
+</ion-content>

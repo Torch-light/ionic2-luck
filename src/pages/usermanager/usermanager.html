@@ -1,0 +1,35 @@
+<!--
+  Generated template for the Usermanager page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>用户管理</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+	<ion-searchbar (ionInput)="search($event)"></ion-searchbar>
+	<ion-list padding>
+  <ion-item-sliding  *ngFor=" let user of userInfo" >
+      <ion-item (click)="goUser(user)">
+      <ion-avatar item-left>
+        <img src={{user.img||img}}>
+      </ion-avatar>
+      <span>{{user.name}}</span>
+      <p>积分:{{user.points}}</p>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="share(item)">封禁</button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+</ion-content>

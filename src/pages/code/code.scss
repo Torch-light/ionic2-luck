@@ -1,0 +1,20 @@
+page-code {
+
+}
+
+.code{
+    text-align: center;
+
+    
+}
+
+.codeswap{
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    .codeDiv{
+        padding: 0.5rem;
+        width: 20%;
+    }
+}
